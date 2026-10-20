@@ -15,7 +15,7 @@ description: >
 ---
 # AI Second Brain Skill
 
-**Version: 1.2 - 2026-09-11 (a cloud run CAN reach the vault, because the vault is a private GitHub repo it clones; only unpushed local changes are out of its reach. The old line said the vault was desktop only and sent every vault job back to the computer.) (1.1 - 2026-09-03: git steps run one at a time, never joined with `&&`). Every save in this
+**Version: 1.3 - 2026-10-20 (client or tenant notes: during setup the owner decides whether they live in this vault, never excluded by default; every file holds the story, never a fact the database already holds) (1.2 - 2026-09-11 (a cloud run CAN reach the vault, because the vault is a private GitHub repo it clones; only unpushed local changes are out of its reach. The old line said the vault was desktop only and sent every vault job back to the computer.) (1.1 - 2026-09-03: git steps run one at a time, never joined with `&&`). Every save in this
 file used to be one chained command, which is the exact shape a permission system refuses, and the
 Auto-Commit Rule made it standing policy and told you to do it silently. A real owner lost a day to
 that: nothing was wrong with git or their repo, the command shape was simply always refused. Layered
@@ -180,12 +180,15 @@ Say: "Perfect. I'm creating your AI Second Brain structure now."
 mkdir -p wiki sources my-content stories frameworks program-materials presentations decisions wins
 ```
 
-Ask: "Do you work with 1:1 clients and want to track them in your AI Second Brain?"
+Ask: "Do you want me to keep notes on your clients (or tenants) here, so I know their story before I draft anything to them?"
 
-If yes:
+If yes, ask one more: "Does anyone else have access to this vault, or will they soon, who should NOT see client details?" This is the owner's call, never a default. Most small businesses share client files with their own team, and that is fine.
+
+- **No** (just them, or a team that works with these same clients): create the folder here. Use `tenants` instead of `clients` for a landlord.
 ```bash
 mkdir -p clients
 ```
+- **Yes:** do not create the folder. Add one line to CLAUDE.md: "No client notes in this vault: it is shared with people who should not see them." Do not set up a second repo during setup. If they want client notes later, a separate private repo is the answer (VA Optional tip #06).
 
 **Create index.md and log.md:**
 
@@ -607,7 +610,13 @@ Confirm: "Added to Best Content."
 
 ## Flow 7: Client File Management (Optional)
 
-Only activate if user has a clients/ folder OR explicitly asks for client support.
+Only activate if user has a clients/ (or tenants/) folder OR explicitly asks for client support. If CLAUDE.md says no client notes live in this vault, do not create any.
+
+**The rules for every client file:**
+- **The database holds the data, the file holds the story.** Never copy a fact the owner's database already holds (prices, amounts, dates, status, contact details) into a client file: it goes stale the first time an automation changes the database, and nothing here would know. Write what no field captures: requests, decisions and why, promises, how a problem was settled, what the owner intends for the relationship.
+- Dated summaries only, newest first. Never paste messages.
+- Never record anything about a protected class (race, religion, national origin, sex, familial status, disability or health, source of income, and the like). Record the action taken, never the reason.
+- Agents may add a dated line without asking, and must list every line they added in their report.
 
 Check before creating:
 ```bash
