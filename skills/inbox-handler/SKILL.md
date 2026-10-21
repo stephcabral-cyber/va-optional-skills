@@ -1,11 +1,13 @@
 ---
 name: inbox-handler
-description: "Read everything new that came in for the business, on every channel the owner connected (email always; texts, Slack and meeting recordings when connected), and triage it: a prioritized brief folded into the day plan, drafted replies for routine items (drafts only, never sent on any channel), and anything urgent flagged. Works for any business, landlord or not, in the owner's own industry words. Covers customer and tenant requests, repairs and service problems, agreement questions, money notices, vendor mail, new leads, and promises made on calls. Trigger when the owner says 'check my inbox', 'run my inbox', 'triage my email', 'what came in', 'daily brief', 'anything urgent', 'check my texts', 'anything in Slack', 'handle my mail', or when the morning run or a routines row invokes it. Formerly named landlord-inbox-handler: any routines row or request that still says landlord-inbox-handler means THIS skill. Never sends anything and never makes rental decisions about applicants or tenants."
+description: "Read everything new that came in for the business, on every channel the owner connected (email always; texts, Slack and meeting recordings when connected), and triage it: a prioritized brief folded into the day plan, drafted replies for routine items (drafts only, never sent on any channel), and anything urgent flagged. Works for any business, landlord or not, in the owner's own industry words. Sorts everything into seven groups any business uses: urgent, needs your review, drafted for you, waiting on, money, read later, and promo ready to archive, with promises made on calls caught as items. Trigger when the owner says 'check my inbox', 'run my inbox', 'triage my email', 'what came in', 'daily brief', 'anything urgent', 'check my texts', 'anything in Slack', 'handle my mail', or when the morning run or a routines row invokes it. Formerly named landlord-inbox-handler: any routines row or request that still says landlord-inbox-handler means THIS skill. Never sends anything and never makes rental decisions about applicants or tenants."
 ---
 
 # Inbox Handler
 
-**Version: 1.5 - 2026-10-17** (renamed from `landlord-inbox-handler`, because it was never only for landlords. It now reads every channel the owner connected, not just email: texts, Slack and meeting recordings, each sorted into the same categories and run through the same rules. When texts cannot be read it uses the owner's people files if they exist, and every brief opens by naming the channels it read and the ones it could not.) v1.4 - 2026-10-06 (mail addressed to someone else on your team is theirs to answer, so Claude drafts nothing for it from your mailbox; and every run starts by listing the earlier drafts that someone has since answered, so your Drafts folder never fills with stale replies). v1.3 - 2026-09-29 (drafts read your written policies first, look up the facts first, read every earlier conversation with the person on every channel (email incl. Sent, texts, the platform thread), never say yes to changing an agreement, never reply to a no-reply address, and every "I'll look into it" comes with a proposed solution in the brief. Examples adapt to YOUR industry.) v1.2 - 2026-08-24.
+**Version: 1.6 - 2026-10-21** (seven groups any business uses replace the eight landlord-shaped categories: urgent, needs your review, drafted for you, waiting on, money, read later, promo ready to archive. The landlord handling moves into the industry table. The skill never archives; once the promo list has been right for two weeks it suggests the owner set up auto-archive in their own email. People files are read every morning when they exist and named in the plan. Texts not connected is said once, not every morning. Promise 2 now reads "never says yes to changing an agreement".) v1.5 - 2026-10-17 (renamed from `landlord-inbox-handler`, because it was never only for landlords. It now reads every channel the owner connected, not just email: texts, Slack and meeting recordings, each sorted into the same categories and run through the same rules. When texts cannot be read it uses the owner's people files if they exist, and every brief opens by naming the channels it read and the ones it could not.) v1.4 - 2026-10-06 (mail addressed to someone else on your team is theirs to answer, so Claude drafts nothing for it from your mailbox; and every run starts by listing the earlier drafts that someone has since answered, so your Drafts folder never fills with stale replies). v1.3 - 2026-09-29 (drafts read your written policies first, look up the facts first, read every earlier conversation with the person on every channel (email incl. Sent, texts, the platform thread), never say yes to changing an agreement, never reply to a no-reply address, and every "I'll look into it" comes with a proposed solution in the brief. Examples adapt to YOUR industry.) v1.2 - 2026-08-24.
+
+**What's new for you (1.6):** Your inbox is now sorted into seven groups that fit any business: urgent, needs your review, drafted for you, waiting on (things you asked and haven't heard back on), money, read later, and promo ready to archive. I never archive anything myself, but once the promo list has been right for a couple of weeks I'll offer to help you set up auto-archive in your own email. If you keep people files, I read them every morning now too.
 
 **What's new for you (1.5):** This skill has a new name, the inbox handler, because it was never only for landlords. It now reads more than email: your texts, your Slack and your meeting recordings too, when you have them connected, and your morning brief tells you which ones it read. Nothing is ever sent on any channel. To get the most from it, connect Slack and your meeting recorder (in Claude: Customize, then Connectors), then tell Vera which Slack channels matter.
 
@@ -38,25 +40,26 @@ Your inbox is where your business actually happens, and for most owners it is no
 **Three hard promises this skill keeps, always:**
 
 1. **Drafts only, never auto-send, on any channel.** Every email reply Claude writes lands in your Drafts folder or in the chat for you to review. A reply to a text or a Slack message is written out in the brief for you to copy and send yourself. You are the only one who ever hits Send.
-2. **No rental decisions.** Claude never decides, recommends, or implies who should get, keep, or lose a rental (see the Fair Housing / FCRA guardrail below).
-3. **Read and draft, nothing destructive.** Claude never deletes, archives, or forwards your mail, and never sends, deletes or reacts to a text or a Slack message, unless you explicitly ask in the moment.
+2. **Never says yes to changing an agreement.** Taking someone off, adding someone, a refund, a waiver, an extension, a price or scope change: the draft states your written policy or holds, and the decision comes to you. For landlords this also means Claude never decides, recommends, or implies who should get, keep, or lose a rental (see the Fair Housing / FCRA guardrail below).
+3. **Never deletes, archives or forwards.** Claude never deletes, archives, or forwards your mail, and never sends, deletes or reacts to a text or a Slack message, unless you explicitly ask in the moment.
 
 ---
 
 ## The channels it reads (v1.5)
 
-**Email is always on. Everything else is read only if you connected it, and the brief says which ones it read.** Every item from every channel goes through the same categories and the same "Before drafting any reply" rules below. A leak reported by text is the same leak as one reported by email, and a promise made on a call is as real as one made in writing.
+**Email is always on. Everything else is read only if you connected it, and the brief says which ones it read.** Every item from every channel goes into the same seven groups and the same "Before drafting any reply" rules below. A leak reported by text is the same leak as one reported by email, and a promise made on a call is as real as one made in writing.
 
 | Channel | What it reads | What you get | When it cannot read it |
 |---|---|---|---|
 | **Email** | New mail since the last run, plus your Sent folder | Drafts in your Drafts folder | Stops and says so, because email is the core of this skill |
-| **Texts** (SMS / iMessage) | New texts with people you do business with, when your setup lets Claude read them on your computer | The suggested reply, written in the brief for you to send | Reads your people files in the vault if you have them; otherwise one line: "texts not read today" |
+| **Texts** (SMS / iMessage) | New texts with people you do business with, when your setup lets Claude read them on your computer | The suggested reply, written in the brief for you to send | If texts were never connected, Claude says so ONCE, at setup, and leaves them off the plan after that. If they are connected and fail on a given morning, one line: "texts not read today" |
+| **People files** (optional) | The vault's people files, one per contact, every morning they exist | Context for every draft and item: who this person is, what was agreed, what was said before | Nothing: an owner with no people files simply has none, and the plan does not mention them |
 | **Slack** | The workspaces, channels and direct messages you named in setup | The suggested reply, written in the brief | One line saying so |
 | **Meeting recordings** | Summaries of calls recorded since the last run (Fathom, Fireflies, Otter or whatever recorder you connected). The full transcript only when a summary shows a promise, a decision or a deadline | Every follow-up you promised, as an item. A draft email when you promised to send something | One line saying so |
 
 **Texts can only be read on your computer.** That is one more reason this skill runs as a row in your morning run, which runs there. If your texts are not connected, nothing breaks: it reads what it can and the brief names what it skipped.
 
-**People files are optional.** They are written by the optional texts feed. If you do not have it, there are none, and the brief says texts were not read rather than implying there was nothing there.
+**People files are optional, and read every morning they exist (v1.6).** They are written by the optional texts feed or by Vera as she learns about someone. They are read whether or not texts were readable, because they carry what was agreed and said before, on every channel. Before an owner has any, nothing is said about them.
 
 **Nothing leaves on any channel.** No text or Slack message is ever sent, and nothing from a call recording is quoted to anyone without you seeing it first.
 
@@ -72,10 +75,10 @@ This skill uses YOUR email account through YOUR connector. Claude never holds yo
    - Where your properties, units and tenants are recorded, so mail can be matched to the right place. If Vera has written your base file, read that instead of keeping a second list here, because two lists drift apart.
    - **Which other channels to read:** your texts, which Slack workspaces, channels and direct messages, and your meeting recorder. Each one is optional. Claude never asks for a password; anything not connected is skipped and named in the brief.
    - Your preferred vendors (plumber, electrician, handyman) so vendor mail is recognized.
-   - Your emergency line: what YOU consider drop-everything urgent (default list is in the Urgent category below).
+   - Your emergency line: what YOU consider drop-everything urgent (the Urgent group below has a starting list).
    - **What business this inbox serves**, in one line (rentals, coaching, an agency, a course, a service trade). Most owners run more than one. The drafts and the brief use that business's words, and the examples in "Before drafting any reply" are picked from it.
    - **Where your written policies live, one file per business.** The rules you already apply without thinking: who can come off an agreement and how, refunds, what is included, who pays for what, how people reach you. If you have no such file yet, Claude starts one per business and adds a rule ONLY after you approve it. A policy that lives only in your head cannot be followed by anything else.
-3. **Optional: a "Landlord" label/folder.** If you want Claude to also label triaged mail (Gmail labels or Outlook categories/folders), say so during setup. Labeling is off by default; the brief works without it.
+3. **Optional: labels for the seven groups.** If you want Claude to also label triaged mail with its group (Gmail labels or Outlook categories), say so during setup. Labeling is off by default; the brief works without it. Labeling never moves mail out of your inbox.
 
 No properties list yet? The skill still works. Claude will infer property context from the emails themselves and ask you when it cannot tell.
 
@@ -145,22 +148,43 @@ setup, and writes the drafts in those words:
 
 ---
 
-## Triage categories and rules
+## The seven groups (v1.6)
 
-Every new email in the watch window gets exactly one primary category. When two could apply, the higher row in this table wins (it is ordered by priority).
+Every new item, on every channel, goes into exactly one group. When two could apply, the higher row wins. **The groups are the same for every business.** What Claude does INSIDE a group changes with your industry, and that lives in the table after this one.
 
-| # | Category | What belongs here | What Claude does |
+**Why seven and not a landlord list (v1.6).** Until 1.5 the groups were repairs, tenant requests, lease questions and the like, which only fit a landlord. The owner asked for groups any business can use, built on the way a good executive assistant sorts an inbox (Dan Martell's "Email GPS": review, to respond, waiting on, financials, newsletters).
+
+| # | Group | What belongs here | What Claude does |
 |---|----------|-------------------|------------------|
-| 1 | **URGENT - flag now** | Anything threatening safety, habitability, or the property: active leaks or flooding, no heat in winter / no AC in extreme heat, no hot water, gas smell, electrical hazard, break-in or lock failure, fire, sewage backup. Also: any legal service (court notice, attorney letter, government/code-enforcement notice) and any tenant message that reads as an emergency even if vaguely worded. | Top of the brief, bolded, with the one next action. NO draft that could delay action ("we'll look into it"); instead a short acknowledgment draft that tells the tenant help is being arranged, plus a suggested vendor to call from your list. When in doubt between urgent and routine, choose urgent. |
-| 2 | **Maintenance - routine** | Repair requests that are real but not emergencies: dripping faucet, appliance acting up, pest sighting, door sticking, light fixture out. | Draft an acknowledgment to the tenant (received, what happens next, asks for photos/access windows if missing) and, if you have a matching vendor, a separate draft to the vendor requesting availability and a quote. Both drafts, you send. |
-| 3 | **Tenant requests - non-maintenance** | Anything a tenant asks that is not a repair: guest or parking questions, adding an occupant or pet, early move-out or transfer asks, complaint about a neighbor, request for a document copy. | Summarize the ask in the brief. Draft a reply ONLY if the answer is factual and already established (in the lease, in your stated policies, or in something you told Claude before). If the answer requires a decision you have not made, the brief presents the question to YOU with the relevant lease/policy language if known - no draft that commits you. |
-| 4 | **Lease questions** | Renewal timing, notice periods, security deposit questions, lease term clarifications, requests to review or sign documents. | Brief item with the key dates pulled from the email. Draft a reply only for pure factual questions where you have given Claude the answer (e.g. your standard notice period). Anything about CHANGING lease terms, rent amount, or renewal decisions goes to you undrafted - those are your calls. |
-| 5 | **Payment and money notices** | Rent received/failed notices from your payment platform, tenant messages about paying late, bank and mortgage notices, utility bills, insurance notices, tax documents. | Brief item with the amount and due date extracted. For a tenant writing about a late payment: a neutral acknowledgment draft that confirms receipt of their message and states you will follow up - never a draft that waives, threatens, or negotiates. Platform/bank/utility notices are summarized only (no reply needed). |
-| 6 | **Vendor mail** | Quotes, invoices, scheduling confirmations, follow-ups from contractors and service companies. | Brief item with the number that matters (quote amount, invoice total, appointment time). Draft simple logistics replies (confirm a time, request an itemized quote, ask for COI/W-9). Approving a quote or paying an invoice is always yours - Claude drafts the acceptance only after you say yes in the brief conversation. |
-| 7 | **Prospective tenants / listing inquiries** | Someone asking about an advertised unit: availability, viewing, application questions. | Brief item only, plus (if you have given Claude your listing facts) a draft that shares ONLY objective listing information: rent, deposit, availability date, viewing process, how to apply. See the Fair Housing guardrail - these drafts never comment on the person, never pre-screen, never discourage or encourage anyone. |
-| 8 | **Everything else** | Newsletters, promotions, personal mail, anything that is not business. | One collapsed line at the bottom of the brief ("14 other emails, nothing landlord-related") unless you asked Claude to handle your whole inbox. |
+| 1 | **Urgent** | Anything that cannot wait until tomorrow: safety, a property or service down, a legal or government notice, a deadline today, any message that reads as an emergency even if vaguely worded. | Top of the day plan with the one next action. A short "help is being arranged" acknowledgment draft, never one that could delay action, plus who to call from your list. When in doubt between urgent and anything else, choose urgent. |
+| 2 | **Needs your review** | Decisions, approvals, anything that would change an agreement, opportunities, contracts, new contacts, and anything only you can answer. | A real question in the day plan, with a PROPOSED answer attached. No draft that commits you. |
+| 3 | **Drafted for you** | Routine items Claude can answer from your policies and your records. | The draft, in your Drafts folder (email) or written out in the plan (text, Slack). One line each in the day plan. |
+| 4 | **Waiting on** | Things you asked someone for and have not heard back on: emails you sent in the last 14 days that asked a question or requested something and got no reply, and anything someone promised YOU on a recorded call. | One line each, oldest first, with how many days it has been. A follow-up draft only if you ask for one. |
+| 5 | **Money** | Bills, receipts, payments received or failed, invoices, quotes, bank and insurance notices, anyone writing about paying. | The amount and the due date, every time. Notices are summarized, not answered. A message about paying late gets a neutral acknowledgment draft that never waives, threatens or negotiates. Approving a quote or paying anything is always yours. |
+| 6 | **Read later** | Newsletters and anything worth reading but not today. | Collapsed into one line ("4 to read later"), listed by name if you ask. |
+| 7 | **Promo, ready to archive** | Promotions, sales mail, notifications nobody needs. | Collapsed into one line with a count. Claude never archives them (promise 3). See "Auto-archive" below. |
 
-**Matching rules:** match sender addresses against your tenant/vendor lists first, then property mentions in the subject/body, then context. If Claude cannot tell which property or tenant an email belongs to, it says so in the brief and asks - it never guesses silently.
+**Matching rules:** match senders against your hub (customers, vendors, team) first, then names and places mentioned in the subject or body, then context. If Claude cannot tell who an item belongs to, it says so and asks, never guesses silently.
+
+### What happens inside a group, by industry
+
+Claude picks the column for the business you named in setup.
+
+| Situation | Landlord | Coach / course creator | Agency / service business | Trades / home services |
+|---|---|---|---|---|
+| A repair or service problem (group 1 or 3) | A tenant acknowledgment AND a separate draft to your matching vendor asking for availability and a quote. Urgent: no heat, leak, gas, lock failure | An acknowledgment and the fix you have on file (resend the login, re-share the file) | An acknowledgment and the fix (re-share the folder, confirm access) | An acknowledgment and two new slots to offer |
+| A new lead (group 2 or 3) | ONLY objective listing facts (rent, deposit, availability, how to view and apply), identical for every prospect; see the Fair Housing guardrail | Program facts and your booking link | Your intro facts and your booking link | Your service area, rates if you publish them, and your booking link |
+| An agreement question (group 2) | Lease terms, renewals, adding or removing a tenant, pets | Refunds, pausing, switching cohorts | Extra scope, revisions, new deadlines | Warranty, callbacks, deposits |
+| Vendor or supplier mail (group 3 or 5) | Confirm a time, request an itemized quote, ask for an insurance certificate or W-9 | Same | Same | Same |
+
+### Auto-archive: suggested, never done by Claude (v1.6)
+
+Claude never archives anything, ever. But a promo pile you clear by hand every morning is wasted time. So:
+
+1. Claude keeps the promo group for at least two weeks.
+2. Once the owner has not pulled anything back out of it for two weeks, Claude asks ONCE in the day plan: "Your promo list has been right for two weeks. Want to set up auto-archive in your email so these never reach your inbox?" with the senders that would be covered.
+3. On a yes, Claude walks the owner through setting up the filter in their own email (Gmail filters or Outlook rules), sender by sender, and the owner saves it. **The email provider does the archiving, never this skill**, and the owner can turn it off there any time.
+4. On a no, Claude does not ask again unless the owner raises it.
 
 ---
 
@@ -183,7 +207,7 @@ None of this is legal advice. This skill never states what the law requires: ask
 
 Every draft Claude writes follows these:
 
-1. **Sound like a professional landlord, not a bot.** Warm, plain English, short sentences. No corporate filler ("per my last email"), no legalese unless quoting the lease.
+1. **Sound like a professional owner, not a bot.** Warm, plain English, short sentences. No corporate filler ("per my last email"), no legalese unless quoting the lease.
 2. **First person, your voice.** Drafts are written as you. If you have a preferred sign-off, Claude uses it; otherwise drafts end on the last content line and you add your own signature.
 3. **Acknowledge, state the next step, give a time expectation you control.** The skeleton of almost every tenant draft: "Got your message about X. Here's what happens next: Y. You'll hear from me/the plumber by Z." Claude only writes a time expectation you have approved as standard.
 4. **Never commit money, terms, or decisions.** No draft agrees to a price, waives a fee, changes a lease term, or promises an outcome unless you already made that decision in the conversation.
@@ -199,31 +223,32 @@ The brief is one message, scannable in under a minute:
 
 ```
 INBOX BRIEF - Tue Jul 16 - 9 business items since yesterday
-Read: email, texts, Slack, 1 meeting recording. Could not read: none.
+Read: email, Slack, people files, 1 meeting recording. Could not read: none.
 
 URGENT (1)
 1. [123 Main, Unit 2 - Dana R.] Water heater leaking into closet, sent 7:42am.
-   -> Draft ack ready. Suggest calling Reyes Plumbing (your water-heater vendor). Say "approve 1" to keep the ack draft ready in your Drafts.
+   -> Draft ack ready. Suggest calling Reyes Plumbing (your water-heater vendor).
 
-NEEDS YOUR DECISION (2)
-2. [456 Oak - Marcus T.] Asks to add a roommate to the lease. Lease sec. 14 requires your written approval.
+NEEDS YOUR REVIEW (2)
+2. [456 Oak - Marcus T.] Asks to add a roommate to the lease.
    -> PROPOSED: your policy file says a new occupant applies like any applicant. Draft ready saying so, with the application link. Approve, edit, or tell me your rule if it differs.
-3. [Vendor - ACME Roofing] Quote came in: $2,850 for the flat-roof patch. Approve, negotiate, or get a second quote?
+3. [Vendor - ACME Roofing] Quote: $2,850 for the flat-roof patch. Approve, negotiate, or get a second quote?
 
-HANDLED - DRAFTS WAITING (3)
-4. [123 Main, Unit 1 - Priya S.] Dishwasher not draining -> tenant ack draft + availability request to Reyes Plumbing.
-5. [789 Pine - prospect] Viewing request -> listing-facts reply drafted.
-6. [456 Oak - Marcus T.] Asked for a copy of his lease -> reply drafted pointing to the attached copy (attach before sending).
+DRAFTED FOR YOU (2)
+4. [123 Main, Unit 1 - Priya S.] Dishwasher not draining -> tenant ack + availability request to Reyes Plumbing.
+5. [789 Pine - prospect] Viewing request -> listing-facts reply.
 
-FYI - NO ACTION (3)
-7. Rent received: 123 Main Unit 1, $1,650 (RentRedi).
+WAITING ON (1)
+6. [City permit office] You asked about the inspection date 6 days ago, no reply.
+
+MONEY (2)
+7. Rent received: 123 Main Unit 1, $1,650.
 8. City water bill, 456 Oak: $118.40 due Aug 1.
-9. Insurance renewal notice, policy ending Sep 30 - flagging again 30 days out.
 
-(11 other emails, nothing landlord-related.)
+(3 to read later. 11 promos, ready to archive.)
 ```
 
-Rules for the brief: the first line names the channels read and any that could not be read; urgent always first; every item names the property and person; every draft is announced, never silently created; drafts that someone has since answered are listed for you to delete; mail written to a teammate is listed in one line, never drafted; "needs your decision" items ask a clear either/or question AND carry a PROPOSED solution (the likely cause if Claude could check it, the fix, who does it, and the reply that goes out once you approve), because a bare "your call" hands you the thinking; every holding reply ("I'll look into it") is listed with its proposed solution too; money items always show the amount and date. After the brief, you reply in plain English ("approve 1 and 4, hold 5, get a second roof quote") and Claude executes - still creating drafts, never sending.
+Rules for the brief: the first line names the channels read (people files included when they exist) and any that could not be read; urgent always first; every item names the property and person; every draft is announced, never silently created; drafts that someone has since answered are listed for you to delete; mail written to a teammate is listed in one line, never drafted; "needs your decision" items ask a clear either/or question AND carry a PROPOSED solution (the likely cause if Claude could check it, the fix, who does it, and the reply that goes out once you approve), because a bare "your call" hands you the thinking; every holding reply ("I'll look into it") is listed with its proposed solution too; money items always show the amount and date. After the brief, you reply in plain English ("approve 1 and 4, hold 5, get a second roof quote") and Claude executes - still creating drafts, never sending.
 
 ---
 
@@ -254,10 +279,10 @@ separate schedule for each job you will run out within a week.
    - **Drafts that are ready say so in one line each**, not as a separate list to go and find.
    - **Everything with no action gets one collapsed line**, or nothing at all.
 
-   The full categorised brief in the format below is still how you THINK. It is a working format, and
+   The full grouped brief in the format below is still how you THINK. It is a working format, and
    it is worth writing out when you are asked for the inbox specifically, or when something is
    complicated enough to need laying out. It is not the daily delivery.
-4. Leave the row paused, run it manually once ("run my inbox brief now") to confirm the connector works and the categories match your mail, then set it active.
+4. Leave the row paused, run it manually once ("run my inbox brief now") to confirm the connector works and the groups match your mail, then set it active.
 
 **Nothing here ever sends.** Replies are drafted and left for you. That holds whether you run it by hand or as part of the daily pass, and there is no setting anywhere that changes it. Nothing this system produces reaches a tenant or a vendor without you reading it first.
 
@@ -266,13 +291,14 @@ separate schedule for each job you will run out within a week.
 **Routine hygiene:**
 - One run per day is the sweet spot. Urgent items do not wait for the routine anyway once real-time triage exists (see roadmap below); until then, the daily run plus your phone's normal notifications cover it.
 - The routine must run with the SAME connector permissions as an interactive session: read + create-draft, no send.
-- If a run finds nothing for the business, the brief is one line ("Nothing today - 6 emails, none business-related"). No news is a valid brief.
+- If a run finds nothing for the business, the brief is one line ("Nothing today: 6 emails, none business-related"). No news is a valid brief.
 
 ---
 
 ## What this skill deliberately does NOT do (v1)
 
 - **No sending, on any channel.** Not even "safe" ones. Version 1 has no auto-send and no send-after-timeout.
+- **No archiving.** Promos are listed, never archived. Auto-archive, if the owner wants it, is a filter they save in their own email (see "Auto-archive").
 - **No real-time monitoring.** It runs when scheduled or asked. Instant triage of incoming mail (n8n watching the mailbox) and instant pings (Slack/SMS "URGENT: leak at 123 Main") are the planned v2, built on the same categories and guardrails in this file.
 - **No tenant screening, no applications processing, no consumer reports** (guardrail above).
 - **No payment actions.** It reads money notices; it never pays, charges, or moves money.
