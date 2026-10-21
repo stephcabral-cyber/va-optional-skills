@@ -268,7 +268,9 @@ separate schedule for each job you will run out within a week.
 
    > Use the inbox-handler skill. Read every channel I connected (email, and texts, Slack and meeting recordings if connected) for everything new since the last run (default: the past 24 hours), triage per the skill, create the reply drafts in my Drafts folder, and deliver the daily brief. Do not send anything. If there is at least one URGENT item, put URGENT and the property in the first line.
 
-3. **The brief is NOT a separate thing you read. It folds into Vera's day plan.** This is the part
+3. **It runs BEFORE the day plan is printed (Vera 5.12, step 2c),** so everything it finds lands in the one plan. It uses the task list Vera already read that morning instead of reading your task tool again, and looks up only the specific people it is drafting for in your hub. Run on its own ("check my inbox"), it reads those sources itself.
+
+4. **The brief is NOT a separate thing you read. It folds into Vera's day plan.** This is the part
    people get wrong, and it is worth being blunt about: if the morning produces a day plan AND an
    inbox brief AND a feed report, you have three things to read and you will read one of them. **One
    surface, every morning: the day plan.**
@@ -282,7 +284,7 @@ separate schedule for each job you will run out within a week.
    The full grouped brief in the format below is still how you THINK. It is a working format, and
    it is worth writing out when you are asked for the inbox specifically, or when something is
    complicated enough to need laying out. It is not the daily delivery.
-4. Leave the row paused, run it manually once ("run my inbox brief now") to confirm the connector works and the groups match your mail, then set it active.
+5. Leave the row paused, run it manually once ("run my inbox brief now") to confirm the connector works and the groups match your mail, then set it active.
 
 **Nothing here ever sends.** Replies are drafted and left for you. That holds whether you run it by hand or as part of the daily pass, and there is no setting anywhere that changes it. Nothing this system produces reaches a tenant or a vendor without you reading it first.
 
