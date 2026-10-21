@@ -5,9 +5,9 @@ description: "Read everything new that came in for the business, on every channe
 
 # Inbox Handler
 
-**Version: 1.6 - 2026-10-21** (seven groups any business uses replace the eight landlord-shaped categories: urgent, needs your review, drafted for you, waiting on, money, read later, promo ready to archive. The landlord handling moves into the industry table. The skill never archives; once the promo list has been right for two weeks it suggests the owner set up auto-archive in their own email. People files are read every morning when they exist and named in the plan. Texts not connected is said once, not every morning. Promise 2 now reads "never says yes to changing an agreement".) v1.5 - 2026-10-17 (renamed from `landlord-inbox-handler`, because it was never only for landlords. It now reads every channel the owner connected, not just email: texts, Slack and meeting recordings, each sorted into the same categories and run through the same rules. When texts cannot be read it uses the owner's people files if they exist, and every brief opens by naming the channels it read and the ones it could not.) v1.4 - 2026-10-06 (mail addressed to someone else on your team is theirs to answer, so Claude drafts nothing for it from your mailbox; and every run starts by listing the earlier drafts that someone has since answered, so your Drafts folder never fills with stale replies). v1.3 - 2026-09-29 (drafts read your written policies first, look up the facts first, read every earlier conversation with the person on every channel (email incl. Sent, texts, the platform thread), never say yes to changing an agreement, never reply to a no-reply address, and every "I'll look into it" comes with a proposed solution in the brief. Examples adapt to YOUR industry.) v1.2 - 2026-08-24.
+**Version: 1.6 - 2026-10-21** (seven groups any business uses replace the eight landlord-shaped categories: urgent, needs your review, drafted for you, waiting on, money, read later, promo ready to archive. The landlord handling moves into the industry table. The skill never archives; once the promo list has been right for two weeks it suggests the owner set up auto-archive in their own email. People files are read every morning when they exist and named in the plan. Texts not connected is said once, not every morning. Promise 2 now reads "never says yes to changing an agreement". Also: a dated note goes into a person's people file when something worth keeping comes up; Claude replaces its OWN out-of-date drafts that nobody edited and leaves edited ones alone; reply drafts go in the original thread; your CRM can be the who's-who source; and it runs before the day plan, reusing the task list Vera already read.) v1.5 - 2026-10-17 (renamed from `landlord-inbox-handler`, because it was never only for landlords. It now reads every channel the owner connected, not just email: texts, Slack and meeting recordings, each sorted into the same categories and run through the same rules. When texts cannot be read it uses the owner's people files if they exist, and every brief opens by naming the channels it read and the ones it could not.) v1.4 - 2026-10-06 (mail addressed to someone else on your team is theirs to answer, so Claude drafts nothing for it from your mailbox; and every run starts by listing the earlier drafts that someone has since answered, so your Drafts folder never fills with stale replies). v1.3 - 2026-09-29 (drafts read your written policies first, look up the facts first, read every earlier conversation with the person on every channel (email incl. Sent, texts, the platform thread), never say yes to changing an agreement, never reply to a no-reply address, and every "I'll look into it" comes with a proposed solution in the brief. Examples adapt to YOUR industry.) v1.2 - 2026-08-24.
 
-**What's new for you (1.6):** Your inbox is now sorted into seven groups that fit any business: urgent, needs your review, drafted for you, waiting on (things you asked and haven't heard back on), money, read later, and promo ready to archive. I never archive anything myself, but once the promo list has been right for a couple of weeks I'll offer to help you set up auto-archive in your own email. If you keep people files, I read them every morning now too.
+**What's new for you (1.6):** Your inbox is now sorted into seven groups that fit any business: urgent, needs your review, drafted for you, waiting on (things you asked and haven't heard back on), money, read later, and promo ready to archive. I never archive anything myself, but once the promo list has been right for a couple of weeks I'll offer to help you set up auto-archive in your own email. If you keep people files, I read them every morning now too, and add a short dated note when I learn something worth keeping about someone. Replies are drafted inside the original conversation, never as a new email. When one of my own drafts goes out of date, I replace it with an updated one, but if you've edited a draft I never touch it. And if your customers live in a CRM, I can use it to know who's who.
 
 **What's new for you (1.5):** This skill has a new name, the inbox handler, because it was never only for landlords. It now reads more than email: your texts, your Slack and your meeting recordings too, when you have them connected, and your morning brief tells you which ones it read. Nothing is ever sent on any channel. To get the most from it, connect Slack and your meeting recorder (in Claude: Customize, then Connectors), then tell Vera which Slack channels matter.
 
@@ -41,7 +41,7 @@ Your inbox is where your business actually happens, and for most owners it is no
 
 1. **Drafts only, never auto-send, on any channel.** Every email reply Claude writes lands in your Drafts folder or in the chat for you to review. A reply to a text or a Slack message is written out in the brief for you to copy and send yourself. You are the only one who ever hits Send.
 2. **Never says yes to changing an agreement.** Taking someone off, adding someone, a refund, a waiver, an extension, a price or scope change: the draft states your written policy or holds, and the decision comes to you. For landlords this also means Claude never decides, recommends, or implies who should get, keep, or lose a rental (see the Fair Housing / FCRA guardrail below).
-3. **Never deletes, archives or forwards.** Claude never deletes, archives, or forwards your mail, and never sends, deletes or reacts to a text or a Slack message, unless you explicitly ask in the moment.
+3. **Never deletes, archives or forwards.** The only thing Claude ever clears is its OWN out-of-date draft that you never edited (rule 8). Claude never deletes, archives, or forwards your mail, and never sends, deletes or reacts to a text or a Slack message, unless you explicitly ask in the moment.
 
 ---
 
@@ -61,6 +61,8 @@ Your inbox is where your business actually happens, and for most owners it is no
 
 **People files are optional, and read every morning they exist (v1.6).** They are written by the optional texts feed or by Vera as she learns about someone. They are read whether or not texts were readable, because they carry what was agreed and said before, on every channel. Before an owner has any, nothing is said about them.
 
+**Claude also adds to them (v1.6).** When an item teaches something worth keeping about a person (a deadline they gave, what was agreed, how they like to be reached, a preference), Claude appends ONE dated line to that person's existing people file: a summary in its own words, never a pasted message. It never creates a new people file without asking the owner, never writes to one if the owner has no people files at all, and never writes what is only a to-do (that belongs in the plan). The optional brain feed works from this same pass and does not write the same fact twice.
+
 **Nothing leaves on any channel.** No text or Slack message is ever sent, and nothing from a call recording is quoted to anyone without you seeing it first.
 
 ---
@@ -72,7 +74,7 @@ This skill uses YOUR email account through YOUR connector. Claude never holds yo
 1. **Connect your email provider.** In Claude's connector settings, connect **Gmail** (Google Workspace connector) or **Outlook / Microsoft 365** (Microsoft connector) and sign in through the provider's own login screen. Claude only needs read and draft-create access; do not grant send permissions if your provider offers granular scopes.
 2. **Tell Claude your setup** the first time you run the skill. It will ask for and remember:
    - Which mailbox to watch (your main inbox, or a dedicated folder/label like "Rentals" if you already filter).
-   - Where your properties, units and tenants are recorded, so mail can be matched to the right place. If Vera has written your base file, read that instead of keeping a second list here, because two lists drift apart.
+   - Where your customers and contacts are recorded: your hub, or your CRM if that is where they live (v1.6). For a landlord that is properties, units and tenants; so mail can be matched to the right place. If Vera has written your base file, read that instead of keeping a second list here, because two lists drift apart.
    - **Which other channels to read:** your texts, which Slack workspaces, channels and direct messages, and your meeting recorder. Each one is optional. Claude never asks for a password; anything not connected is skipped and named in the brief.
    - Your preferred vendors (plumber, electrician, handyman) so vendor mail is recognized.
    - Your emergency line: what YOU consider drop-everything urgent (the Urgent group below has a starting list).
@@ -91,12 +93,12 @@ reply said "I can help get you removed" and promised to fix a co-customer's port
 real rule was that nobody comes off unless the people who stay can qualify on their own, and it was
 written down nowhere the drafter could read. So it guessed, and it guessed yes. The same draft was
 addressed to the platform's no-reply address, and it had not checked who was actually on the
-agreement. Eight rules, in order (7 and 8 were added in v1.4, see below):
+agreement. Nine rules, in order (7 and 8 were added in v1.4 and changed in v1.6; 9 was added in v1.6):
 
 1. **Read your policy file for that business first.** If the answer is there, draft from it. If it is
    not, do not invent one: write a holding reply and list the question in the brief with a proposed
    rule for you to approve.
-2. **Look up the facts before writing a word.** Who is on the agreement, what they bought, what they
+2. **Look up the facts before writing a word,** in your hub or your CRM. Who is on the agreement, what they bought, what they
    owe, what is already open for them. A draft that does not match your records is wrong however well
    it reads.
 3. **Read what has already been said to them, on every channel, before drafting.** Your email in both
@@ -122,12 +124,23 @@ agreement. Eight rules, in order (7 and 8 were added in v1.4, see below):
    usually answer it themselves within hours. The brief lists it in one line under **Your team's
    threads** so you still see it. If setup told Claude it can open that teammate's mailbox, it checks
    their Sent folder first and, if a reply is still needed, drafts it there under their name.
-8. **Clear up after yourself.** Before reading new mail, Claude looks at the drafts it made on earlier
-   runs and checks your Sent folder (and any teammate mailbox it can open) for a reply sent after the
-   draft, on the same thread or to the same person. It reads that reply's body, because a reply about
-   something else does not count. A draft that has already been answered is listed in the brief under
-   **Already answered, delete this draft**, with who replied and when. Claude does not delete it
-   itself: deleting your mail is always your call.
+8. **Keep your Drafts folder current (v1.6).** After the new drafts are written, Claude looks at the
+   drafts it made on earlier runs and checks your Sent folder (and any teammate mailbox it can open)
+   for a reply sent after the draft, on the same thread or to the same person. It reads that reply's
+   body, because a reply about something else does not count. It also checks whether the facts behind
+   the draft changed. For a draft that is out of date:
+   - **If it is still exactly what Claude wrote,** Claude clears it and, if a reply is still needed,
+     writes an updated one in the same thread. Claude keeps a short log of the drafts it creates (in the
+     vault, next to the policy files) so it can tell its own untouched drafts from edited ones.
+   - **If you edited it, or Claude cannot tell,** it never touches it. It lists it in the brief under
+     **Out of date, your call**, with who replied and when.
+   - **If the email connector cannot delete drafts,** it lists every out-of-date draft for you instead.
+
+9. **Reply inside the original conversation (v1.6).** A reply draft is created as a reply to the
+   message it answers, so it sits in the same thread with the history underneath (Gmail: reply to that
+   message's id; Outlook: a reply draft on that message). A new thread is only for a brand-new message
+   with nothing to reply to. A draft sitting outside its thread loses the history and reads as a cold
+   open.
 
 **Why 7 and 8 exist (v1.4).** A tenant wrote to the owner's assistant, and a copy landed in the
 owner's inbox. The early morning run drafted a reply from the owner's mailbox, in the owner's name. The
@@ -300,7 +313,7 @@ separate schedule for each job you will run out within a week.
 ## What this skill deliberately does NOT do (v1)
 
 - **No sending, on any channel.** Not even "safe" ones. Version 1 has no auto-send and no send-after-timeout.
-- **No archiving.** Promos are listed, never archived. Auto-archive, if the owner wants it, is a filter they save in their own email (see "Auto-archive").
+- **No deleting, except its own untouched out-of-date drafts (rule 8). No archiving.** Promos are listed, never archived. Auto-archive, if the owner wants it, is a filter they save in their own email (see "Auto-archive").
 - **No real-time monitoring.** It runs when scheduled or asked. Instant triage of incoming mail (n8n watching the mailbox) and instant pings (Slack/SMS "URGENT: leak at 123 Main") are the planned v2, built on the same categories and guardrails in this file.
 - **No tenant screening, no applications processing, no consumer reports** (guardrail above).
 - **No payment actions.** It reads money notices; it never pays, charges, or moves money.
