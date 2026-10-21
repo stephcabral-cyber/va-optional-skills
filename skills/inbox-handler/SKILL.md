@@ -7,7 +7,7 @@ description: "Read everything new that came in for the business, on every channe
 
 **Version: 1.6 - 2026-10-21** (seven groups any business uses replace the eight landlord-shaped categories: urgent, needs your review, drafted for you, waiting on, money, read later, promo ready to archive. The landlord handling moves into the industry table. The skill never archives; once the promo list has been right for two weeks it suggests the owner set up auto-archive in their own email. People files are read every morning when they exist and named in the plan. Texts not connected is said once, not every morning. Promise 2 now reads "never says yes to changing an agreement". Also: a dated note goes into a person's people file when something worth keeping comes up; Claude replaces its OWN out-of-date drafts that nobody edited and leaves edited ones alone; reply drafts go in the original thread; your CRM can be the who's-who source; and it runs before the day plan, reusing the task list Vera already read.) v1.5 - 2026-10-17 (renamed from `landlord-inbox-handler`, because it was never only for landlords. It now reads every channel the owner connected, not just email: texts, Slack and meeting recordings, each sorted into the same categories and run through the same rules. When texts cannot be read it uses the owner's people files if they exist, and every brief opens by naming the channels it read and the ones it could not.) v1.4 - 2026-10-06 (mail addressed to someone else on your team is theirs to answer, so Claude drafts nothing for it from your mailbox; and every run starts by listing the earlier drafts that someone has since answered, so your Drafts folder never fills with stale replies). v1.3 - 2026-09-29 (drafts read your written policies first, look up the facts first, read every earlier conversation with the person on every channel (email incl. Sent, texts, the platform thread), never say yes to changing an agreement, never reply to a no-reply address, and every "I'll look into it" comes with a proposed solution in the brief. Examples adapt to YOUR industry.) v1.2 - 2026-08-24.
 
-**What's new for you (1.6):** Your inbox is now sorted into seven groups that fit any business: urgent, needs your review, drafted for you, waiting on (things you asked and haven't heard back on), money, read later, and promo ready to archive. I never archive anything myself, but once the promo list has been right for a couple of weeks I'll offer to help you set up auto-archive in your own email. If you keep people files, I read them every morning now too, and add a short dated note when I learn something worth keeping about someone. Replies are drafted inside the original conversation, never as a new email. When one of my own drafts goes out of date, I replace it with an updated one, but if you've edited a draft I never touch it. And if your customers live in a CRM, I can use it to know who's who.
+**What's new for you (1.6):** Your inbox is now sorted into seven groups that fit any business: urgent, needs your review, drafted for you, waiting on (things you asked and haven't heard back on), money, read later, and promo ready to archive. I never archive anything myself, but once the promo list has been right for a couple of weeks I'll offer to help you set up auto-archive in your own email. If you keep people files, I read them every morning now too, and add a short dated note when I learn something worth keeping about someone. Replies are drafted inside the original conversation, never as a new email. When one of my own drafts goes out of date, I replace it with an updated one, but if you've edited a draft I never touch it. And if your customers live in a CRM, I can use it to know who's who. You don't need to set anything up: the first time, I add it to your morning run myself, run it once with you, and ask if you want it every morning.
 
 **What's new for you (1.5):** This skill has a new name, the inbox handler, because it was never only for landlords. It now reads more than email: your texts, your Slack and your meeting recordings too, when you have them connected, and your morning brief tells you which ones it read. Nothing is ever sent on any channel. To get the most from it, connect Slack and your meeting recorder (in Claude: Customize, then Connectors), then tell Vera which Slack channels matter.
 
@@ -274,12 +274,25 @@ that budget is spent by the one schedule that runs everything. **Add a ROW to yo
 instead**, and Vera will run this as part of the daily pass. One schedule, many jobs. If you create a
 separate schedule for each job you will run out within a week.
 
-**What to put in the row:**
+**Vera sets this up FOR the owner (v1.6). The owner never adds the row themselves.** The first time
+this skill is installed, or on any run where no Daily Routines row names `inbox-handler`, Vera does
+all of it in the same session:
 
-1. Frequency daily, and a priority that puts it where you want it in the morning order.
-2. Set its instructions to exactly this (adjust the mailbox or time window if you customized setup):
+- **If their email is not connected yet,** say so in one line, with where to connect it (in Claude:
+  Customize, then Connectors). Connecting is the one step only the owner can do. Add the row as soon as
+  it is connected.
+- **Add the row herself, Paused,** with the settings below already filled in.
+- **Run it once, right then,** and show the owner their first brief and the drafts it made, in their
+  day plan format.
+- **Ask one question:** "Want this running every morning?" On a yes, set the row to Active and say so in
+  one line. On a no, leave it Paused and do not ask again unless they raise it.
 
-   > Use the inbox-handler skill. Read every channel I connected (email, and texts, Slack and meeting recordings if connected) for everything new since the last run (default: the past 24 hours), triage per the skill, create the reply drafts in my Drafts folder, and deliver the daily brief. Do not send anything. If there is at least one URGENT item, put URGENT and the property in the first line.
+**What goes in the row:**
+
+1. Frequency daily, and a priority that puts it first among the routines that read messages.
+2. Its instructions, exactly this (adjust the mailbox or time window if setup customized them):
+
+   > Use the inbox-handler skill. Read every channel I connected (email, and texts, Slack and meeting recordings if connected) for everything new since the last run (default: the past 24 hours), triage per the skill, create the reply drafts in my Drafts folder, and deliver the daily brief. Do not send anything. If there is at least one URGENT item, put URGENT and who or what it is about in the first line.
 
 3. **It runs BEFORE the day plan is printed (Vera 5.12, step 2c),** so everything it finds lands in the one plan. It uses the task list Vera already read that morning instead of reading your task tool again, and looks up only the specific people it is drafting for in your hub. Run on its own ("check my inbox"), it reads those sources itself.
 
@@ -297,7 +310,7 @@ separate schedule for each job you will run out within a week.
    The full grouped brief in the format below is still how you THINK. It is a working format, and
    it is worth writing out when you are asked for the inbox specifically, or when something is
    complicated enough to need laying out. It is not the daily delivery.
-5. Leave the row paused, run it manually once ("run my inbox brief now") to confirm the connector works and the groups match your mail, then set it active.
+5. The supervised first run above is what proves the connector works and the groups match the owner's mail. Never switch the row on without it.
 
 **Nothing here ever sends.** Replies are drafted and left for you. That holds whether you run it by hand or as part of the daily pass, and there is no setting anywhere that changes it. Nothing this system produces reaches a tenant or a vendor without you reading it first.
 
