@@ -346,8 +346,9 @@ Vera saves your work the same way in a Cloud session, with one difference worth 
 ## For Vera
 
 This file is the setup playbook and is kept out of your skill so your instructions stay short. It
-lives at `https://raw.githubusercontent.com/FindingLand/va-optional-skills/main/download/vera-setup.md`
-and you can fetch it any time.
+lives in the members-only library repo `va-optional/va-optional-skills` at `download/vera-setup.md`.
+Read it from your local clone of the library (see "WHERE THE LIBRARY LIVES" in your skill), never
+from an anonymous download link: those stopped working when the library went members-only.
 
 **Three pre-work items go missing more often than anything else, and each one stalls a session: Claude
 Desktop not updated and relaunched, the Central Hub link never received, and Airtable connected to one

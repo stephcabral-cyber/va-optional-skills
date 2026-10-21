@@ -50,6 +50,9 @@ More arrive during the program. You do nothing to receive them.
 Your assistant keeps her own copy of every skill in **your** private repo. At the start of each run she
 checks this library and folds anything new into your copies.
 
+**This library is members-only.** GitHub emails you an invitation to the `va-optional` organization:
+accept it with your GitHub account and Vera can reach every update. No email? Ask in the VA Optional Slack.
+
 **Your changes are kept.** Where you have edited a skill and the library later changes the same skill,
 she merges the two and shows you anything that changed on both sides so you decide. She never
 overwrites your work silently.
