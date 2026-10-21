@@ -5,7 +5,9 @@ description: "What a mod for the Claude desktop app (Claude Code) can and cannot
 
 # Mods for the Claude app
 
-**Version: 1.0 - 2026-10-20**
+**Version: 1.1 - 2026-10-21**
+
+What's new for you: build every mod inside your Memory Vault from the start and install it from there, so it never lives only on one computer.
 
 A mod is a small add-on to the Claude desktop app (the Code tab). Claude writes it for you, it lives on
 your computer, and it changes a few things about what the app shows or does. We built and tested several
@@ -50,9 +52,10 @@ Then:
 1. The first time, the app asks to enable hot reloading for the session. Click Enable
 2. The mod reloads after each of Claude's turns, so expect "check it now" a few times
 3. If a dim line names the mod with an error, copy it and paste it back to Claude
-4. When it works, ask Claude to keep a copy in your Memory Vault so a new computer can get it back
+4. Build it in your Memory Vault from the start, in your vault's mods folder (one folder per mod), and install it from there. Never leave a mod only on your computer: work that lives on one computer is lost with it, and a new computer cannot get it back
 
 ## Rules that save time
 - **One fact, one place.** Never show the same thing in two spots
 - **Stop after two failed rounds** and ask Claude for a different route. Grinding on a mod rarely ends well
 - Start a new session to check that the mod loads for every session, not just the one that built it
+- **The vault is the source of truth.** Any mod you build or use lives in your Memory Vault and is committed and pushed. Your computer only installs it from the vault copy. Not sure? Ask Claude "is everything I built saved in my vault?"

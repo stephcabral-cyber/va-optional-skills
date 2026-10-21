@@ -1,6 +1,6 @@
 # How your second brain is organized
 
-**Version: 1.1 - 2026-08-17**
+**Version: 1.2 - 2026-10-21**
 
 **This is the standard layout. Vera set it up for you and follows it. It is yours: rename or add
 folders whenever you like, and edit this file to match. Vera reads THIS copy, in your repo, not the
@@ -17,6 +17,7 @@ puts it where this file says, or proposes a new place and writes it here.
 |---|---|---|
 | `CLAUDE.md` (a file, at the top) | Your operating notes: who you are, how you like to work, what Vera should always remember. Claude reads it automatically every session. Keep it short. | "I own 6 units in Hartford CT. Always draft, never send. I check messages at 9am." |
 | `.claude/skills/` | Your team. One folder per skill: Vera, Tessa, Fiona, Owen and the tool skills. These are your copies, customize them freely. | `.claude/skills/tessa/SKILL.md` |
+| `mods/` | Your mods: small add-ons for the Claude app, one folder per mod. Any mod you build or use lives here, and your computer installs it from here, never from a copy only on your computer. | `mods/my-status-line/` |
 | `policies/` | Your house rules, one per file. What you always do, so the agents never guess. | `policies/late-fees.md`, `policies/pets.md`, `policies/security-deposits.md` |
 | `procedures/` | How you do a recurring job, step by step. The agents follow these when a routine runs. | `procedures/move-in.md`, `procedures/renewal.md` |
 | `templates/` | Messages and documents you reuse. The agents fill them in, they never invent wording. | `templates/rent-reminder.md`, `templates/lease-renewal-offer.md` |
