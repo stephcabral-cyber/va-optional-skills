@@ -1,11 +1,13 @@
 ---
 name: daily-brain-feed
-description: "OPTIONAL. Feeds the owner's Memory Vault every day from what happened: everything the inbox handler read that morning (email, and texts, Slack and meeting recordings when connected), reduced to lessons, decisions and updates and written into the right folders. Runs as ONE row in the routines table inside Vera's daily pass, never as its own schedule. Trigger when the owner says 'daily brain feed', 'feed my second brain', 'feed my memory vault from my emails', 'set up the daily feed', 'brain feed', or asks Vera to learn from their emails or meetings every day. Vera offers it once after the Memory Vault, Airtable and the daily pass are working; never installs it unasked."
+description: "OPTIONAL. Feeds the owner's Memory Vault every day from what happened: everything the inbox handler read that morning (email, and texts, Slack and meeting recordings when connected), reduced to lessons, decisions and updates and written into the right folders. Runs as ONE row in the routines table inside Vera's daily pass, never as its own schedule. Trigger when the owner says 'daily brain feed', 'feed my second brain', 'feed my memory vault from my emails', 'set up the daily feed', 'turn on the brain feed', 'turn off the brain feed', 'brain feed', 'what did you learn this week', or asks Vera to learn from their emails or meetings every day. It is installed with the library but switched OFF: Vera offers it in the day plan once the Memory Vault, Airtable and the daily pass are working, and never switches it on unasked."
 ---
 
 # Daily brain feed (optional)
 
-**Version: 1.2 - 2026-10-17** (learns from everything the inbox handler read that morning, not only email and meeting recordings, so a rule agreed by text or a decision made in Slack reaches the vault too. Asks up to three times instead of once, and the owner can turn it on any time by asking. Runs only in the morning run, never on its own cloud schedule. Points at the renamed `inbox-handler`.) v1.1 - 2026-08-24.
+**Version: 1.3 - 2026-10-21** (no setup questions: on a yes Vera uses the defaults, says them in one line, adds the Daily brain feed row herself, and runs it once right away so the owner sees what it saved. The offer comes as a question in the day plan. "Turn off the brain feed" switches the row off, and "what did you learn this week?" answers from what it saved. Matches Week 2 Chapter 7.) v1.2 - 2026-10-17 (learns from everything the inbox handler read that morning, not only email and meeting recordings, so a rule agreed by text or a decision made in Slack reaches the vault too. Asks up to three times instead of once, and the owner can turn it on any time by asking. Runs only in the morning run, never on its own cloud schedule. Points at the renamed `inbox-handler`.) v1.1 - 2026-08-24.
+
+**What's new for you (1.3):** Turning on the brain feed is now one word: say yes when I ask in your day plan, or say "turn on the brain feed" anytime. I set it up myself, no questions, add it to your Daily Routines tab, and run it once so you can see what it saved. "Turn off the brain feed" turns it off, and "what did you learn this week?" shows you what it kept.
 
 **What's new for you (1.2):** If you have the brain feed on, it now learns from your texts, your Slack and your meeting recordings too, not just your email, because it works from everything the inbox handler read that morning. If you said no to it before, Vera may ask you again, up to three times in all, and you can turn it on yourself any time by saying "turn on the brain feed."
 
@@ -49,37 +51,40 @@ them so and let them decide.
 
 It is optional, so it is off until the owner says yes. Ask only after all three are true: the Memory
 Vault is saving, Airtable is connected with the routines table, and "Good morning, Vera" has run at
-least once. Then:
+least once. Then ask it as ONE question item in the day plan (v1.3), never as a separate message:
 
 > "I can also save what you decide and learn to your Memory Vault every day, from your email, your
 > texts, your Slack and your meeting recordings, so I learn your business without you having to tell
 > me. It's the heaviest reading I do. Want me to turn it on?"
 
-- **Yes:** set it up as below.
+- **Yes:** set it up as below, in the same run.
 - **No:** log the date in `log.md`. Ask again about 30 days later, and if that is a no, about 90 days
   after that. Each later ask adds one line on what it would have caught since the last ask, taken
   from what the inbox handler read. **After the third no, stop asking for good.**
 - **Any time, on request:** "turn on the brain feed" or "set up the daily feed" sets it up, whatever
   was said before. A no never locks the owner out.
+- **Turning it off:** "turn off the brain feed" sets its Daily Routines row to Paused and says so in one
+  line. Nothing it already saved is removed.
 
 Log every ask and answer with its date, so the count survives across sessions.
 
-## Setting it up (one conversation, three questions)
+## Setting it up (no questions, v1.3)
 
-1. **Which sources?** By default, everything the inbox handler reads, so there is nothing to ask. Only
-   if the owner runs this without the inbox handler: email (which mailbox), and which recorder:
-   Fathom, Fireflies, Otter, or none.
-   Ask how Vera should reach each: the connector already on (Gmail connector, Google Drive folder the
-   recorder saves into), or a folder or forwarding rule the owner sets up. Never ask for a password.
-   If a source cannot be reached from where Vera runs, drop it and say so.
-2. **Which lookback?** Default: since the last run, capped at 2 days. Never "everything".
-3. **Where do things go?** Use `reference/repo-layout.md`. Defaults: a decision the owner made goes to
+**Vera does the whole setup herself and asks nothing.** She uses these defaults and says them in ONE
+line ("I'll learn from everything your inbox handler reads, look back to the last run, and file things
+by your vault layout. Want anything different?"). She changes a default only if the owner asks.
+
+1. **Sources:** everything the inbox handler reads. If the inbox handler is not installed, email (the
+   connected mailbox) and the meeting recorder already connected, if any. Never ask for a password. If a
+   source cannot be reached from where Vera runs, drop it and say so.
+2. **Lookback:** since the last run, capped at 2 days. Never "everything".
+3. **Where things go:** by `reference/repo-layout.md`. Defaults: a decision the owner made goes to
    `decisions/YYYY-MM-DD_topic.md`; a rule they stated goes to `policies/`; a fact about the business
    (new vendor, new attorney, new unit) goes to `business/`; a lesson or an open thread goes to
    `notes/YYYY-MM-DD_daily-feed.md`; anything about a tenant, lease or money that should be a record
    goes to the tasks table as a proposed row, never written into Airtable records directly.
 
-Then create ONE row in the routines table:
+Then create ONE row in the Daily Routines tab:
 
 | Field | Value |
 |---|---|
@@ -91,9 +96,17 @@ Then create ONE row in the routines table:
 | Prepare and wait | No (it writes only to the vault and to the tasks table as proposals) |
 | Order | Last in the pass |
 
-Record the owner's answers (sources, how reached, lookback, destinations) in
+Record the settings (sources, how reached, lookback, destinations) in
 `.claude/skills/daily-brain-feed/config.md` in THEIR vault, so the run needs no questions. Push. Add
 the skill's row to the skills table.
+
+**Then run it once, right away, in the same session (v1.3),** and show the owner what it saved: the
+two or three items that matter and the folders they went to. Tell them the row named **Daily brain
+feed** in their Daily Routines tab is how they know it is on, and that "turn off the brain feed" turns
+it off.
+
+**"What did you learn this week?"** Answer from what this skill saved: read `log.md` and the files it
+wrote in the last seven days, and give the few items that matter, each with the folder it is in.
 
 ## The daily run
 
@@ -132,4 +145,5 @@ the skill's row to the skills table.
   pass.
 - **Nothing sensitive gets copied verbatim.** Numbers, names and dates that matter, yes. Whole email
   bodies, bank details, documents, no. Link or cite instead.
-- **The owner can turn it off by setting the row inactive.** Say so when you set it up.
+- **The owner can turn it off by saying "turn off the brain feed"** (or by pausing the row). Say so when
+  you set it up.
