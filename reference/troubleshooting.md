@@ -1,6 +1,6 @@
 # Troubleshooting
 
-**Version: 1.3 - 2026-09-07**
+**Version: 1.4 - 2026-10-23** (1.4: a new section, "Bringing in your team and your own processes", from a member workshop call)
 
 Things that go wrong, in the words you would use to describe them. Find the one that sounds like your
 problem and work down from there.
@@ -418,6 +418,72 @@ Firefox don't.
 
 **And it's rarely urgent.** The extension only matters when she has to click around a site that has no
 connection of its own. Everything else works from whatever browser you like.
+
+---
+
+## Bringing in your team and your own processes
+
+### I want my VA or my team using Vera, but they shouldn't see everything
+
+**Usually:** the worry is right, and the fix is how your vault is split, not a permission setting.
+**Anyone you share a repo with sees everything inside it.** There is no hiding one folder from them.
+So start from that rule and decide what goes where.
+
+**The setup that works:**
+
+- **A private repo, only you.** Anything personal: bank account numbers, your own financial analysis,
+  personal preferences, anything you track that isn't business. Your keys file stays here too.
+- **A shared repo for the business.** Policies, procedures, and whatever your team needs to do the
+  work. If your VA already handles tenants, tenant notes can live here.
+- **A third repo, only if you need it.** For example, staff and operational decisions that your
+  second in command should see and your VA shouldn't.
+
+Vera gets access to all of them and learns the rules for what gets saved where. You then invite each
+person only to the repo they should see.
+
+**Don't sort it by hand. Ask her.**
+
+**Ask your Claude:** *"I want to share my vault with my VA. Create a separate private repo for me, then
+go through what's in my current vault and tell me what you'd move into it because it shouldn't be
+shared. Show me the list before you move anything, then set up the rules for where you save things
+from now on"*
+
+**#tech-help if:** the split is done and the person you invited still can't see the shared repo, or can
+see the private one.
+
+### I have a process I want to hand her, and it feels too big to explain
+
+**Usually:** it's being explained as one big rule. Most processes that feel overwhelming are two or
+three small checks stacked together.
+
+**Break it down in this order:**
+
+1. **Every place the information lives.** Email, a group chat app, Slack, a card statement, your
+   bookkeeping software. She reads all of them first, then does the work. One skill can read as many
+   sources as it needs, in an order you set.
+2. **Each separate check.** For example: "every charge on the supplies card was billed to an owner" is
+   one check, and "every receipt someone was reimbursed for was billed too" is another, because those
+   receipts never touch the card. Two checks, one report.
+3. **Then ask her to write it as a skill.**
+
+**Skill, routine or automation?**
+
+- **Needs judgment** (reading, comparing, deciding what's missing): a skill. If it repeats, give it a
+  row in your Daily Routines table with how often it runs (monthly, and which day) and it runs with
+  your morning.
+- **Moves data with no thinking involved:** an automation, built in n8n.
+- **Two monthly jobs that run the same day** still get two rows. She finishes one, wraps it up, then
+  starts the other.
+
+**Worth knowing:** if a step means logging into a website with no connection of its own, she has to do
+it in your browser, so that routine needs your computer on.
+
+**Ask your Claude:** *"I want to hand you [the process]. Before you build anything, ask me where every
+piece of information for it lives and what checks it's really made of, one at a time. Then tell me
+whether it should be a skill, a routine or an automation, and why"*
+
+**#tech-help if:** you've broken it down and she still can't reach one of the sources. Say which tool
+it is.
 
 ---
 
